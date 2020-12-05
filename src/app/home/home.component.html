@@ -1,0 +1,108 @@
+<router-outlet></router-outlet>
+<div class="container" style="margin-top: 20%">
+  <div class="row">
+    <div class="col s6" style="color: white">Door Light</div>
+    <div class="col s6">
+      <div class="switch">
+        <label>
+          <input
+            type="checkbox"
+            id="tbDoorLight"
+            (change)="doorLightClick($event)"
+            [(ngModel)]="doorLight"
+          />
+          <span class="lever"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6" style="color: white">Main Light</div>
+    <div class="col s6">
+      <div class="switch">
+        <label>
+          <input
+            type="checkbox"
+            id="tbMainLight"
+            (change)="mainLightClick($event)"
+            [(ngModel)]="mainLight"
+          />
+          <span class="lever"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6" style="color: white">Temperature</div>
+  </div>
+  <div class="row" style="text-align: center">
+    <a
+      class="waves-effect waves-light btn"
+      style="background: white; color: black; box-shadow: 0 0 black"
+      (click)="decreaseTemperature($event)"
+      >-</a
+    >
+    <span style="color: white; margin-left: 5%; margin-right: 5%">{{
+      temperatureValue
+    }}</span>
+    <a
+      class="waves-effect waves-light btn"
+      style="background: white; color: black; box-shadow: 0 0 black"
+      (click)="increaseTemperature($event)"
+      >+</a
+    >
+  </div>
+  <div class="row">
+    <div class="col s6" style="color: white">Fan Speed</div>
+  </div>
+  <div class="row" style="text-align: center">
+    <a
+      class="waves-effect waves-light btn"
+      style="background: white; color: black; box-shadow: 0 0 black"
+      (click)="decreaseFanspeed($event)"
+      >-</a
+    >
+    <span style="color: white; margin-left: 5%; margin-right: 5%">{{
+      fanspeedValue
+    }}</span>
+    <a
+      class="waves-effect waves-light btn"
+      style="background: white; color: black; box-shadow: 0 0 black"
+      (click)="increaseFanspeed($event)"
+      >+</a
+    >
+  </div>
+  <div class="row" style="text-align: center">
+    <a
+      class="waves-effect waves-light btn"
+      style="text-align: center; background: white; color: #0f2027"
+      (click)="onAddNoteClick()"
+      >Add Note</a
+    >
+  </div>
+</div>
+
+<div id="modal2" class="modal" style="width: 100%">
+  <div class="modal-content">
+    <h4>Add Note</h4>
+    <div class="modal-section">
+      <div class="input-field">
+        <input
+          id="name"
+          type="text"
+          placeholder="Enter note here :"
+          [(ngModel)]="note"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn-flat">No</a>
+    <a
+      (click)="confirmAddNote()"
+      class="modal-close waves-effect waves-green btn-flat"
+      style="background: #136a8a; color: white"
+      >Yes</a
+    >
+  </div>
+</div>
